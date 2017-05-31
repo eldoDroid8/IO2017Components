@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">IO2017Components</string>
+    <string name="loading_albums">Loading Albums...</string>
+</resources>
