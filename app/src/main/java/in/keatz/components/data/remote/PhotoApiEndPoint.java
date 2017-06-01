@@ -1,11 +1,8 @@
 package in.keatz.components.data.remote;
 
-import android.arch.lifecycle.MediatorLiveData;
-
 import java.util.List;
 
 import in.keatz.components.data.remote.model.Album;
-import in.keatz.components.data.remote.model.Resource;
 import retrofit2.Call;
 import retrofit2.http.GET;
 

@@ -1,13 +1,12 @@
 package in.keatz.components.data.remote;
 
-import android.arch.lifecycle.MediatorLiveData;
+import android.support.annotation.NonNull;
 import android.support.coreutils.BuildConfig;
 import android.util.Log;
 
 import java.util.List;
 
 import in.keatz.components.data.remote.model.Album;
-import in.keatz.components.data.remote.model.Resource;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -45,10 +44,10 @@ private NetworkInteractor interactor;
 
     public void syncPhotos() {
         PhotoApiEndPoint photoApiEndPoint = retrofit.create(PhotoApiEndPoint.class);
-        Call<List<Album>> photos = photoApiEndPoint.getPhotos();
+        Call photos = photoApiEndPoint.getPhotos();
         photos.enqueue(new Callback<List<Album>>() {
             @Override
-            public void onResponse(Call<List<Album>> call, Response<List<Album>> response) {
+            public void onResponse(@NonNull Call<List<Album>> call, @NonNull Response<List<Album>> response) {
                 Log.d("Syncing succcessfull","----yeeee-----");
                 if(response.isSuccessful()){
 
@@ -57,7 +56,7 @@ private NetworkInteractor interactor;
             }
 
             @Override
-            public void onFailure(Call<List<Album>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<Album>> call, @NonNull Throwable t) {
                     t.printStackTrace();
                 interactor.onFailed(null);
             }
