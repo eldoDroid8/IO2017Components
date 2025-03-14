@@ -1,11 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext.kotlin_version = '1.6.21'
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.android.tools.build:gradle:8.7.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -18,6 +21,14 @@ allprojects {
         maven {
             url "https://maven.google.com"
         }
+        google()
+    }
+    configurations.configureEach {
+        resolutionStrategy {
+            force 'org.jetbrains.kotlin:kotlin-stdlib:1.6.21' // Example older Kotlin version
+            force 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21'
+            force 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21'
+        }
     }
 }
 
@@ -25,15 +36,16 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 ext {
-    buildToolsVersion = "25.0.2"
-    supportLibVersion = "25.3.1"
-    runnerVersion = "0.5"
-    rulesVersion = "0.5"
-    espressoVersion = "2.2.2"
-    archLifecycleVersion = "1.0.0-alpha1"
-    archRoomVersion = "1.0.0-alpha1"
-    retrofit = "2.3.0"
-    daggerVersion = '2.10'
-    rxJava2Version='2.0.5'
-    rxAndroid2Version='2.0.1'
+    appCompatVersion = '1.6.1'
+    cardViewVersion = '1.0.0'
+    recyclerViewVersion = '1.3.2'
+    constraintLayoutVersion = '2.1.4'
+    lifecycleVersion = '2.6.2'
+    retrofit = '2.9.0'
+    retrofitGsonConverter = '2.9.0'
+    okHttpLoggingInterceptor = '4.11.0'
+    okHttp = '4.11.0'
+    rxJava2Version = '2.2.21'
+    rxAndroid2Version = '2.1.1'
+    junitVersion = '4.13.2'
 }

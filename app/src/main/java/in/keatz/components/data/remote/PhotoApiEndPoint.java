@@ -10,7 +10,7 @@ import retrofit2.http.GET;
  * Created by Inspiron on 5/25/2017.
  */
 
-public interface PhotoApiEndPoint<ResultType> {
+public interface PhotoApiEndPoint {
     @GET("/photos")
     Call<List<Album>> getPhotos();
 

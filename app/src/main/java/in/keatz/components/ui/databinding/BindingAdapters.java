@@ -15,9 +15,9 @@
  */
 
 package in.keatz.components.ui.databinding;
-
-import android.databinding.BindingAdapter;
 import android.view.View;
+
+import androidx.databinding.BindingAdapter;
 
 
 public class BindingAdapters {
